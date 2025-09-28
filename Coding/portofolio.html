@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio - Bayu Laksono</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Bayu Laksono</h1>
+      <p id="typing-text">Network Operation Center (NOC) | Mahasiswa Teknik Informatika</p>
+      <div class="hero-buttons">
+        <a href="CV BAYU LAKSONO2025.pdf" class="cta-btn" target="_blank">📄 Download CV</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">Tentang Saya</a>
+    <a href="#experience">Pengalaman</a>
+    <a href="#education">Pendidikan</a>
+    <a href="#skills">Keahlian</a>
+    <a href="#contact">Kontak</a>
+    <button id="darkModeToggle">🌙</button>
+  </nav>
+
+  <div class="container">
+    <!-- Tentang Saya -->
+    <section id="about" class="fade-in">
+      <h2>Tentang Saya</h2>
+      <p>Saya adalah seorang Network Operation Center (NOC) Staff di PT. Cyberplus Media Pratama dengan fokus pada optimasi kinerja dan pemecahan masalah.
+        Saya memiliki latar belakang yang kuat dalam konfigurasi perangkat jaringan dan mendukung operasional jaringan yang stabil.
+        Saat ini saya juga aktif sebagai mahasiswa S1 Informatika di Universitas Indraprasta PGRI.</p>
+    </section>
+
+    <!-- Pengalaman -->
+    <section id="experience" class="fade-in">
+      <h2>Pengalaman Kerja</h2>
+      <div class="job">
+        <h3>PT. Cyberplus Media Pratama - NOC Staff</h3>
+        <p><i>Okt 2021 – Sekarang | Bekasi</i></p>
+        <ul>
+          <li>Monitoring jaringan 24/7, identifikasi anomali & tindakan korektif</li>
+          <li>Troubleshooting konektivitas & konfigurasi</li>
+          <li>Konfigurasi perangkat jaringan (router, switch, radio)</li>
+          <li>Dukungan teknis untuk pelanggan</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <h3>Pemerintah Kota Bekasi - Administrator (Magang)</h3>
+        <p><i>Mar 2020 – Jul 2020 | Bekasi</i></p>
+        <ul>
+          <li>Manajemen dokumen surat masuk & keluar</li>
+          <li>Menyusun proposal & laporan kegiatan</li>
+          <li>Tugas administrasi umum</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Pendidikan -->
+    <section id="education" class="fade-in">
+      <h2>Pendidikan</h2>
+      <p><b>Universitas Indraprasta PGRI</b> - Teknik Informatika (2023 – sekarang) | IPK: 3.61</p>
+      <p><b>SMK Karya Guna 2 Bekasi</b> - TKJ (2018 – 2021) | Nilai: 86.14</p>
+    </section>
+
+    <!-- Keahlian -->
+    <section id="skills" class="fade-in">
+      <h2>Keahlian & Sertifikasi</h2>
+      <ul>
+        <li>Subnetting, Routing (BGP, Static), Switching</li>
+        <li>Konfigurasi Router (MikroTik, Cisco, Juniper)</li>
+        <li>Wireless (MikroTik, Ubiquiti, Cambium)</li>
+        <li>Access Point (TP-Link, Unifi, Ruijie)</li>
+        <li>OLT & ONT berbagai vendor</li>
+        <li>Konfigurasi & Manage CCTV</li>
+        <li>Microsoft Office Suite</li>
+      </ul>
+      <p><b>Sertifikasi:</b> MikroTik Certified Network Associate (2022 – 2025)</p>
+    </section>
+
+    <!-- Kontak -->
+    <section id="contact" class="fade-in">
+      <h2>Kontak</h2>
+      <p class="contact-tagline">Hubungi saya disini!</p>
+      <div class="contact-container slide-in">
+        <!-- Info Kontak -->
+        <div class="contact-info">
+          <p><img src="email.png"/> <a href="mailto:bayulak66@gmail.com">bayulak66@gmail.com</a></p>
+          <p><img src="Whastapp.jpeg"/> <a href="https://api.whatsapp.com/send/?phone=6281311255743&text&type=phone_number&app_absent=0">+62 813-1125-5743</a></p>
+          <p><img src="linkedin.png"/> <a href="https://linkedin.com/in/bayu-laksono-0ba1b8249" target="_blank">LinkedIn Saya</a></p>
+        </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Bayu Laksono. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll("nav a");
+    const toggleBtn = document.getElementById("darkModeToggle");
+
+    // Animasi saat scroll
+    window.addEventListener("scroll", () => {
+      const trigger = window.innerHeight * 0.85;
+      sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if (top < trigger) {
+          sec.classList.add("show");
+        }
+      });
+
+      // Highlight menu aktif
+      let current = "";
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 120;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute("id");
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+
+      // Slide-in kontak
+      const contact = document.querySelector(".slide-in");
+      if (contact.getBoundingClientRect().top < trigger) {
+        contact.classList.add("active");
+      }
+    });
+
+    // Dark Mode Toggle
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      if (document.body.classList.contains("dark-mode")) {
+        toggleBtn.textContent = "☀️";
+        localStorage.setItem("theme", "dark");
+      } else {
+        toggleBtn.textContent = "🌙";
+        localStorage.setItem("theme", "light");
+      }
+    });
+
+    // Load tema
+    window.onload = () => {
+      if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        toggleBtn.textContent = "☀️";
+      }
+    };
+  </script>
+</body>
+</html>

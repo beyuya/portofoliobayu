@@ -1,0 +1,252 @@
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background: #f8f9fa;
+    color: #2c3e50;
+    font-family: 'Segoe UI', sans-serif;
+    transition: background 0.5s, color 0.5s;
+  }
+  
+  /* Hero Section dengan animasi background */
+  .hero {
+    background: linear-gradient(-45deg, #2d59de, #051134, #843f03, #f1c40f);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Navigation */
+  nav {
+    background: #2c3e50;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+  }
+  
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -5px;
+    background: #f39c12;
+    transition: 0.3s;
+  }
+  
+  nav a:hover::after {
+    width: 100%;
+  }
+  
+  nav a.active {
+    color: #f39c12;
+  }
+  
+  /* CTA button */
+  .cta-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #ffffff;
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+  
+  .cta-btn:hover {
+    background: gray;
+    transform: translateY(-2px);
+  }
+  
+  /* Contact Section */
+  .contact-tagline {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-style: italic;
+    color: #555;
+  }
+  
+  .contact-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .contact-info img {
+    width: 24px;   
+    height: 24px;  
+    margin-right: 8px; 
+    vertical-align: middle; 
+    border-radius: 4px; 
+    flex: 1;
+  }
+  
+  /* Animasi Scroll */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+  }
+  
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .slide-in {
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 0.8s ease-out;
+  }
+  
+  .slide-in.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  /* ============================= */
+  /* 🌙 Dark Mode Full             */
+  /* ============================= */
+  body.dark-mode {
+    background: #1e1e1e;
+    color: #eaeaea;
+  }
+  
+  body.dark-mode nav {
+    background: #111;
+  }
+  
+  body.dark-mode nav a {
+    color: #f1f1f1;
+  }
+  
+  body.dark-mode nav a.active {
+    color: #f39c12;
+  }
+  
+  body.dark-mode footer {
+    background: #111;
+    color: #bbb;
+  }
+  
+  body.dark-mode .contact-form input,
+  body.dark-mode .contact-form textarea {
+    background: #2a2a2a;
+    border: 1px solid #555;
+    color: #eaeaea;
+  }
+  
+  body.dark-mode .contact-form input:focus,
+  body.dark-mode .contact-form textarea:focus {
+    border-color: #f39c12;
+    box-shadow: 0 0 10px rgba(243,156,18,0.8);
+    background: #333;
+  }
+  
+  body.dark-mode .contact-form button {
+    background: #f39c12;
+    color: #000;
+  }
+  
+  /* ============================= */
+  /* 📱 Responsive Design          */
+  /* ============================= */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 32px;
+    }
+  
+    .hero p {
+      font-size: 16px;
+    }
+  
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    nav a {
+      margin: 8px;
+      font-size: 14px;
+    }
+  
+    .contact-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .contact-info,
+    .contact-form {
+      flex: 1 1 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .hero {
+      padding: 60px 15px;
+    }
+  
+    .hero h1 {
+      font-size: 26px;
+    }
+  
+    .hero-buttons {
+      flex-direction: column;
+    }
+  
+    .cta-btn {
+      width: 100%;
+      text-align: center;
+    }
+  
+    nav {
+      flex-direction: column;
+    }
+  
+    nav a {
+      display: block;
+      margin: 5px 0;
+    }
+  }
+  
